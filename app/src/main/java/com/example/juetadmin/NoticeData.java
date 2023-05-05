@@ -54,4 +54,4 @@ public class NoticeData {
     public void setKey(String key) {
         this.key = key;
     }
-}
+   }
