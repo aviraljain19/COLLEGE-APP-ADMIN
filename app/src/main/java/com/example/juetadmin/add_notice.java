@@ -92,7 +92,7 @@ public class add_notice extends AppCompatActivity {
         final StorageReference filePath;
         filePath=storageReference.child("Notice").child(finalimg+"jpg" );
         final UploadTask uploadTask= filePath.putBytes(finalimg);
-        uploadTask.addOnCompleteListener(this, new OnCompleteListener<UploadTask.TaskSnapshot>() {
+        uploadTask.addOnCompleteListener(add_notice.this, new OnCompleteListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if(task.isSuccessful()){
