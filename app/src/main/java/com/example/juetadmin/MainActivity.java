@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.juetadmin.faculty.UpdateFaculty;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    CardView uploadNotice, addGalleryImage, addEbook;
+    CardView uploadNotice, addGalleryImage, addEbook, faculty;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addGalleryImage.setOnClickListener(this);
         addEbook = findViewById(R.id.addEbook);
         addEbook.setOnClickListener(this);
+        faculty= findViewById(R.id.faculty);
+        faculty.setOnClickListener(this);
     }
 
     @Override
@@ -34,6 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           }
           else if(view.getId()==R.id.addEbook){
               Intent intent = new Intent(MainActivity.this, UploadPdfActivity.class);
+              startActivity(intent);
+          }
+          else if(view.getId()==R.id.faculty){
+              Intent intent = new Intent(MainActivity.this, UpdateFaculty.class);
               startActivity(intent);
           }
 
