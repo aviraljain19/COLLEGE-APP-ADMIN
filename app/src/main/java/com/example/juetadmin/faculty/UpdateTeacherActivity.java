@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -42,6 +43,8 @@ public class UpdateTeacherActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private DatabaseReference reference;
     private String downloadUrl,uniqueKey,category;
+    private ProgressDialog pd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +68,17 @@ public class UpdateTeacherActivity extends AppCompatActivity {
         reference= FirebaseDatabase.getInstance().getReference().child("teacher");
         storageReference= FirebaseStorage.getInstance().getReference();
 
-        try {
-            Picasso.get().load(image).into(updateTeacherImage);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+
+        pd= new ProgressDialog(this);
+
+        if (image.isEmpty()) {
+            updateTeacherImage.setImageResource(R.drawable.teacheravatar);
+        } else {
+            try {
+                Picasso.get().load(image).into(updateTeacherImage);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
 
         updateTeacherEmail.setText(email);
@@ -114,9 +124,16 @@ public class UpdateTeacherActivity extends AppCompatActivity {
             updateTeacherPost.requestFocus();
         }
         else if(bitmap == null){
-            updateData("");
+
+            pd.setMessage("Updating...");
+            pd.show();
+
+            updateData(image);
         }
         else{
+
+            pd.setMessage("Updating...");
+            pd.show();
             uploadImage();
         }
         
