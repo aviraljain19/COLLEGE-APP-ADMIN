@@ -16,6 +16,9 @@
         android:theme="@style/Theme.JUETADMIN"
         tools:targetApi="31">
         <activity
+            android:name=".notice.DeleteNoticeActivity"
+            android:exported="false" />
+        <activity
             android:name=".faculty.UpdateTeacherActivity"
             android:exported="false" />
         <activity
