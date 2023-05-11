@@ -7,6 +7,7 @@
     tools:context=".notice.DeleteNoticeActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/deleteNoticeRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >

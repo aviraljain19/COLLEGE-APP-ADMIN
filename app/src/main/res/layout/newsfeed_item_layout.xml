@@ -8,13 +8,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:layout_margin="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="36dp"
@@ -24,6 +26,7 @@
             </de.hdodenhof.circleimageview.CircleImageView>
 
         <TextView
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Admin College App"
@@ -34,6 +37,7 @@
         </TextView>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/deleteNotice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Delete"
@@ -44,6 +48,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/deleteNoticeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Test Demo text"
@@ -53,6 +58,7 @@
         </TextView>
 
         <ImageView
+            android:id="@+id/deleteNoticeImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="fitXY">

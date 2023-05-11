@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.juetadmin.faculty.UpdateFaculty;
+import com.example.juetadmin.notice.DeleteNoticeActivity;
 import com.example.juetadmin.notice.add_notice;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    CardView uploadNotice, addGalleryImage, addEbook, faculty;
+    CardView uploadNotice, addGalleryImage, addEbook, faculty , deleteNotice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addGalleryImage.setOnClickListener(this);
         addEbook = findViewById(R.id.addEbook);
         addEbook.setOnClickListener(this);
+        deleteNotice = findViewById(R.id.deleteNotice);
+        deleteNotice.setOnClickListener(this);
         faculty= findViewById(R.id.faculty);
         faculty.setOnClickListener(this);
     }
@@ -43,6 +46,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           }
           else if(view.getId()==R.id.faculty){
               Intent intent = new Intent(MainActivity.this, UpdateFaculty.class);
+              startActivity(intent);
+          }
+          else if(view.getId()==R.id.deleteNotice){
+              Intent intent = new Intent(MainActivity.this, DeleteNoticeActivity.class);
               startActivity(intent);
           }
 
