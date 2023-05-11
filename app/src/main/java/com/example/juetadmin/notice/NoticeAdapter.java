@@ -1,9 +1,13 @@
 package com.example.juetadmin.notice;
 
 import android.annotation.SuppressLint;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+
+import android.content.Context;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +67,7 @@ public class NoticeAdapter extends RecyclerView.Adapter <NoticeAdapter.NoticeVie
             public void onClick(View view) {
 
 
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setMessage("Delete this notice?");
                 builder.setCancelable(true);
@@ -112,6 +117,22 @@ public class NoticeAdapter extends RecyclerView.Adapter <NoticeAdapter.NoticeVie
                 }
 
 
+                DatabaseReference reference= FirebaseDatabase.getInstance().getReference().child("Notice");
+                reference.child(currentItem.getKey()).removeValue()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(context,"Deleted",Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(context,"Something Went wrong",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                notifyItemRemoved(position);
+
+
             }
         });
     }
@@ -135,3 +156,6 @@ public class NoticeAdapter extends RecyclerView.Adapter <NoticeAdapter.NoticeVie
         }
     }
 }
+
+
+
