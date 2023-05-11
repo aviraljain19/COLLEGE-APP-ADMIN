@@ -34,7 +34,7 @@
             android:name=".Uploadimage"
             android:exported="false" />
         <activity
-            android:name=".add_notice"
+            android:name=".notice.add_notice"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

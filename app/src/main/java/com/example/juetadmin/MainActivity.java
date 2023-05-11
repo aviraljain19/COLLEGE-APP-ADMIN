@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.juetadmin.faculty.UpdateFaculty;
+import com.example.juetadmin.notice.add_notice;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
