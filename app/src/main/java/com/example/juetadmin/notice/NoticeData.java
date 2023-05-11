@@ -1,4 +1,4 @@
-package com.example.juetadmin;
+package com.example.juetadmin.notice;
 
 public class NoticeData {
     String title,image,date,time,key;
