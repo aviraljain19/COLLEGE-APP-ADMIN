@@ -122,20 +122,7 @@ public class NoticeAdapter extends RecyclerView.Adapter <NoticeAdapter.NoticeVie
                 }
 
 
-                DatabaseReference reference= FirebaseDatabase.getInstance().getReference().child("Notice");
-                reference.child(currentItem.getKey()).removeValue()
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                Toast.makeText(context,"Deleted",Toast.LENGTH_SHORT).show();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(context,"Something Went wrong",Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                notifyItemRemoved(position);
+
 
 
             }
@@ -161,6 +148,3 @@ public class NoticeAdapter extends RecyclerView.Adapter <NoticeAdapter.NoticeVie
         }
     }
 }
-
-
-
