@@ -73,10 +73,11 @@ public class add_notice extends AppCompatActivity {
                     noticeTitle.requestFocus();
 
                 } else if (bitmap==null) {
-                    uploadData();
+                    Toast.makeText(add_notice.this,"Please select image",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     uploadImage();
+                    uploadData();
                 }
             }
         });

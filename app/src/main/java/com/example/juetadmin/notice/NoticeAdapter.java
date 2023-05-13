@@ -51,12 +51,17 @@ public class NoticeAdapter extends RecyclerView.Adapter <NoticeAdapter.NoticeVie
         holder.deleteNoticeTitle.setText(currentItem.getTitle());
 
         try {
-            if (currentItem.getImage() != null) {
+            if (currentItem.getImage().trim().length() == 0) {
+                holder.deleteNoticeImage.setImageResource(R.drawable.ic_image);
+
+            }
+            else{
                 Picasso.get().load(currentItem.getImage()).into(holder.deleteNoticeImage);
             }
         }catch(Exception e){
                 throw new RuntimeException(e);
-            }
+
+           }
 
         holder.deleteNotice.setOnClickListener(new View.OnClickListener() {
             @Override
