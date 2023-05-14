@@ -74,10 +74,10 @@ public class add_notice extends AppCompatActivity {
 
                 } else if (bitmap==null) {
                     Toast.makeText(add_notice.this,"Please select image",Toast.LENGTH_SHORT).show();
+                    //uploadData();
                 }
                 else{
                     uploadImage();
-                    uploadData();
                 }
             }
         });
@@ -112,7 +112,7 @@ public class add_notice extends AppCompatActivity {
                 }
                 else {
                     pd.dismiss();
-                    Toast.makeText(add_notice.this,"Something went wrong",Toast.LENGTH_SHORT);
+                    Toast.makeText(add_notice.this,"Something went wrong",Toast.LENGTH_SHORT).show();
                 }
             }
         });
