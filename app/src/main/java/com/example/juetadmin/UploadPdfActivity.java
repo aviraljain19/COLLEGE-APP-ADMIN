@@ -104,6 +104,7 @@ public class UploadPdfActivity extends AppCompatActivity {
                         Task<Uri> uriTask= taskSnapshot.getStorage().getDownloadUrl();
                         while(!uriTask.isComplete());
                         Uri uri = uriTask.getResult();
+                        downloadurl=String.valueOf(uri);
                         uploadData(String.valueOf(uri));
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -121,9 +122,9 @@ public class UploadPdfActivity extends AppCompatActivity {
         HashMap data = new HashMap();
         data.put("pdfTitle",title);
         data.put("pdfUrl",downloadurl);
-        databasereference.child("pdf").child(uniqueKey).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+        databasereference.child("pdf").child(uniqueKey).setValue(data).addOnCompleteListener(new OnCompleteListener() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
+            public void onComplete(@NonNull Task task) {
                 pd.dismiss();
                 Toast.makeText(UploadPdfActivity.this,"Pdf uploaded succesfully",Toast.LENGTH_SHORT).show();
                 pdfTitle.setText("");
@@ -141,11 +142,13 @@ public class UploadPdfActivity extends AppCompatActivity {
 
     private void openGallery() {
         Intent intent = new Intent();
-        intent.setType("pdf/docs/ppt");
+
+        intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-            startActivityForResult(Intent.createChooser(intent,"Select pdf file"), REQ);
-        }
+
+
+        startActivityForResult(Intent.createChooser(intent,"Select pdf file"), REQ);
+
     }
 
     @SuppressLint("Range")
