@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".notice.add_notice"
+    android:background="@color/background"
     android:padding="15dp">
 
     <LinearLayout
