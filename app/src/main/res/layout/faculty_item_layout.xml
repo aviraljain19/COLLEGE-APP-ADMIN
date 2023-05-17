@@ -8,6 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -33,27 +34,27 @@
                     android:textSize="18sp">
 
                 </TextView><TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/teacherPost"
-                    android:text="xyz"
-                    android:textColor="@color/textColor"
-                    android:textSize="18sp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/teacherPost"
+                android:text="xyz"
+                android:textColor="@color/textColor"
+                android:textSize="18sp">
 
-                </TextView><TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/teacherEmail"
-                    android:text="qwe"
-                    android:textColor="@color/textColor"
-                    android:textSize="18sp">
+            </TextView><TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/teacherEmail"
+                android:text="qwe"
+                android:textColor="@color/textColor"
+                android:textSize="18sp">
 
-                </TextView>
-                
+            </TextView>
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/teacherUpdate"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="38dp"
                     android:text="Update Info"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_marginVertical="4dp">
